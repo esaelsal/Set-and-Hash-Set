@@ -1,0 +1,134 @@
+import java.util.*;
+
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+public class Main {
+    public static void main(String[] args) {
+        // with set you apply to solve completely different problems than with Array
+
+        // For example, creating a set of string
+        // Set is an abstract and can not be initialized, thats when the HashSet comes
+        // Set is an interface, and not a normal class
+        // Example of set as an interface:
+        /*Set<String> names = new Set<String>() {
+            @Override
+            public int size() {
+                return 0;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public boolean contains(Object o) {
+                return false;
+            }
+
+            @Override
+            public Iterator<String> iterator() {
+                return null;
+            }
+
+            @Override
+            public Object[] toArray() {
+                return new Object[0];
+            }
+
+            @Override
+            public <T> T[] toArray(T[] a) {
+                return null;
+            }
+
+            @Override
+            public boolean add(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean remove(Object o) {
+                return false;
+            }
+
+            @Override
+            public boolean containsAll(Collection<?> c) {
+                return false;
+            }
+
+            @Override
+            public boolean addAll(Collection<? extends String> c) {
+                return false;
+            }
+
+            @Override
+            public boolean retainAll(Collection<?> c) {
+                return false;
+            }
+
+            @Override
+            public boolean removeAll(Collection<?> c) {
+                return false;
+            }
+
+            @Override
+            public void clear() {
+
+            }
+        }*/
+
+        // Example of set using HashSet instead:
+        Set<String> names = new HashSet<>();
+
+        // Set interface is where Java says any kind of class that wants to be class has to support
+        // operations and methods like adding items, removing them and etc.
+        // HashSet is actually one of those implementations of operations and methods for the Set.
+        // HashSet is probably going to be used 99% of all the time you ever use a set
+
+        names.add("Walter");
+        names.add("Jesse");
+        names.add("Mike");
+        names.add("Saul");
+        names.add("Skyler");
+
+        // HashSet has no particular order, so when you sout- them you will have them in random orders
+        // HashSet does not allow duplicate, so if a value is written many times, it will only show them one
+
+        System.out.println(names);
+
+        names.remove("Walter");
+        names.remove(0); // its not working to use the index
+
+        System.out.println(names);
+        System.out.println(names.size());
+        System.out.println(names.contains("Gus")); // it will return boolean when you check whether or not
+                                                   // the value exists in the HashSet
+
+        // using for loop to go through each element, or each String in this case
+        for (String name : names) { // For each String name inside Set names, I want to do the following...
+            System.out.println(name); // it will print out all the value in its own line
+        }
+
+        // using lambda to iterate through your set
+        //names.forEach(); // I want to go through my names Set, and for each element in my names Set
+                         // I want to print it out
+                         // in other words: for each method in my set, I want to...
+
+        names.forEach(System.out::println); // this says, for each element in my names Set, I want to
+                                            // print them out
+
+        // now we are going to use iterator to iterate through your set
+        // first we declare our iterator object and then equate them with whichever iterator we want
+        Iterator<String> namesIterator = names.iterator();
+        while(namesIterator.hasNext()){ // and then you use while for it;
+                                        // while there are more things in our set to iterate over,
+                                        // we're going to print them out
+            System.out.print(namesIterator.next());
+
+        }
+        
+        // whenever you want to do not want to duplicate items and you dont care about the order you use 
+        // the Set and HashSet
+    }
+
+}
